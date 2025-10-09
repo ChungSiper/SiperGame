@@ -25,9 +25,20 @@ public class RunPlayer1State : StateBase
         {
             _stateMachine.ChangeState(_player.IdlePlayer1State);
         }
-        else
+        if(_player.JumpInput != 0)
         {
-            _stateMachine.ChangeState(new IdlePlayer1State(_player));
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _player.jumpForce * _player.JumpInput);
+            _player.JumpInput = 0f;
+            _stateMachine.ChangeState(_player.JumpPlayer1State);
+        }
+        if(!_player.isGroundDetect)
+        {
+            _stateMachine.ChangeState(_player.FallPlayer1State);
+        }
+        if(_player.AttackInput != 0)
+        {
+            _player.AttackInput = 0f;
+            _stateMachine.ChangeState(_player.AttackPlayer1State);
         }
     }
 }

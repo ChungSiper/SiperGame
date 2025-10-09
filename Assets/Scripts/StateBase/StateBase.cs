@@ -7,6 +7,8 @@ public class StateBase
     protected StateMachine _stateMachine;
     protected Animator _anim;
     protected Rigidbody2D _rb;
+    protected bool _triggerEvent;
+    public bool TriggerEvent { get => _triggerEvent; set => _triggerEvent = value;}
     public StateBase(PlayerController player)
     {
         _player = player;
@@ -16,7 +18,7 @@ public class StateBase
     }
     public virtual void Enter() 
     {
-
+        _triggerEvent = false;
     }
     public virtual void Exit() 
     {
@@ -28,6 +30,6 @@ public class StateBase
     private void HandleAnimation()
     {
         _anim.SetFloat("xInput", _rb.linearVelocity.x);
-        //_anim.SetFloat("yInput", _rb.linearVelocity.y);
+        _anim.SetFloat("yInput", _rb.linearVelocity.y);
     }
 }

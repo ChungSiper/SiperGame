@@ -50,5 +50,17 @@ TagManager:
   - name: BackGround
     uniqueID: 288208241
     locked: 0
+  - name: Tree
+    uniqueID: 3000041197
+    locked: 0
+  - name: Home
+    uniqueID: 1099167423
+    locked: 0
+  - name: May
+    uniqueID: 2056065753
+    locked: 0
+  - name: Nui1
+    uniqueID: 618382665
+    locked: 0
   m_RenderingLayers:
   - Default
