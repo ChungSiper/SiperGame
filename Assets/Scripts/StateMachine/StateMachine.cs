@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class StateMachine 
 {
-    private StateBase _currentState;
-    public StateBase CurrentState
+    private AgentStateBase _currentState;
+    public AgentStateBase CurrentState
     {
         get => _currentState;
-    } 
-
-    public void ChangeState(StateBase newState)
+    }
+    public void ChangeState(AgentStateBase newState)
     {
         if (newState == null)
         {

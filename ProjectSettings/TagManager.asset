@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Home
+    uniqueID: 1099167423
+    locked: 0
   - name: Player
     uniqueID: 1915294761
     locked: 0
@@ -52,9 +55,6 @@ TagManager:
     locked: 0
   - name: Tree
     uniqueID: 3000041197
-    locked: 0
-  - name: Home
-    uniqueID: 1099167423
     locked: 0
   - name: May
     uniqueID: 2056065753
