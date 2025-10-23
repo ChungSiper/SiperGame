@@ -13,7 +13,7 @@ public class IdleMonsterState : MonterStateBase
     {
         base.Enter();
         _anim.SetBool("isGround", true);
-        _timer = _monster.IdleTime;
+        _timer = _monsterController.IdleTime;
     }
     public override void Exit()
     {
@@ -25,8 +25,8 @@ public class IdleMonsterState : MonterStateBase
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
-            _monster.SetFacingDiretion(_monster.FacingDirection * -1);
-            _stateMachine.ChangeState(_monster.WalkMonsterState);
+            _monsterController.SetFacingDiretion(_monsterController.FacingDirection * -1);
+            _stateMachine.ChangeState(_monsterController.WalkMonsterState);
         }
     }
 }

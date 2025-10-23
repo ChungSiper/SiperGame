@@ -22,9 +22,5 @@ public class JumpPlayer1State : Player1StateBase
         {
             _stateMachine.ChangeState(_player.FallPlayer1State);
         }
-        if(_player.isGroundDetect)
-        {
-            _stateMachine.ChangeState(_player.IdlePlayer1State);
-        }
     }
 }

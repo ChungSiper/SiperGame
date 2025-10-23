@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class AgentController : MonoBehaviour
 {
-    protected Rigidbody2D _rb;
-    protected Animator _anim;
     protected StateMachine _stateMachine;
-    public Rigidbody2D RB => _rb;
-    public Animator anim => _anim;
     public StateMachine StateMachine => _stateMachine;
+    protected Rigidbody2D _rb;
+    public Rigidbody2D RB => _rb;
+    protected Animator _anim;
+    public Animator anim => _anim;
 
     #region Dtection flags
-    private bool _isGrounDetect = true;
-    private bool _isWallDetect = true;
+    private bool _isGrounDetect;
+    private bool _isWallDetect;
     public bool isGroundDetect => _isGrounDetect;
     public bool isWallDetect => _isWallDetect;
     #endregion
 
     #region Serialized Fields
-    [SerializeField] private float _groundDetectDistance = 0.7f;
-    [SerializeField] private float _wallDetectDistance = 0.3f;
-    [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private LayerMask _wallLayer;
-    [SerializeField] private Transform _detectGameObject;
+    [SerializeField] protected float _groundDetectDistance = 0.7f;
+    [SerializeField] protected float _wallDetectDistance = 0.3f;
+    [SerializeField] protected LayerMask _groundLayer;
+    [SerializeField] protected LayerMask _wallLayer;
+    [SerializeField] protected Transform _detectGameObject;
     #endregion
     public float FacingDirection => transform.localScale.x;
     protected virtual void Awake()
@@ -42,10 +42,14 @@ public class AgentController : MonoBehaviour
     }
     public void SetFacingDiretion(float direction)
     {
-        if (direction > 0)
-            transform.localScale = new Vector2(1, 1);
-        else if (direction < 0)
-            transform.localScale = new Vector2(-1, 1);
+        if (direction == 0)
+        {
+            return;
+        }
+        if (direction > 0 != transform.localScale.x > 0)
+        {
+            transform.localScale *= new Vector2(-1f, 1f);
+        }
     }
 
     private void DetectGround()

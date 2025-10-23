@@ -4,14 +4,14 @@ using UnityEngine;
 [SerializeField]
 public class MonterStateBase : AgentStateBase
 {
-    protected MonsterController _monster;
+    protected MonsterController _monsterController;
     public MonterStateBase(MonsterController monsterController) : base(monsterController)
     {
-        _monster = monsterController;
+        _monsterController = monsterController;
     }
     protected override void HandleAnimationEvent()
     {
-        _anim.SetFloat("xInput", _rb.linearVelocity.x / _monster.RunSpeed);
+        _anim.SetFloat("xInput", _rb.linearVelocity.x / _monsterController.RunSpeed);
         _anim.SetFloat("yInput", _rb.linearVelocity.y);
     }
 }
