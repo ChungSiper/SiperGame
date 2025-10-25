@@ -24,6 +24,8 @@ public class AgentController : MonoBehaviour
     [SerializeField] protected LayerMask _groundLayer;
     [SerializeField] protected LayerMask _wallLayer;
     [SerializeField] protected Transform _detectGameObject;
+    [SerializeField] protected float _health = 100f;
+    [SerializeField] protected HealthBar _healthBar;
     #endregion
     public float FacingDirection => transform.localScale.x;
     protected virtual void Awake()
@@ -32,7 +34,11 @@ public class AgentController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _stateMachine = new StateMachine();
 
-        
+        //_healthBar.MaxHealth = _health;
+        //_healthBar.HealthBarSlider.maxValue = _health;
+        //_healthBar.SetValue(_health);
+
+
     }
     void Update()
     {

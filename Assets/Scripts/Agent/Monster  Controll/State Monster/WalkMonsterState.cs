@@ -1,29 +1,18 @@
 using UnityEngine;
 
-public class WalkMonsterState : MonterStateBase
+public class WalkMonsterState : GroundMonsterState
 {
     public WalkMonsterState(MonsterController monster) : base(monster)
     {
     }
-    public override void Enter()
+    public override void Update()
     {
-        base.Enter();
-        
-    }
-    public override void Exit()
-    {
-        base.Exit();
-        
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Update();
+        _monsterController.Walk();
+        if (!_monsterController.isGroundDetect || _monsterController.isWallDetect)
+        {
+            _rb.linearVelocity = Vector2.zero;
+            _stateMachine.ChangeState(_monsterController.IdleMonsterState);
+        }
     }
 }

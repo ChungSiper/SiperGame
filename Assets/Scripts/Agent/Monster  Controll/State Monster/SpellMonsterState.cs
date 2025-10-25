@@ -1,7 +1,11 @@
 using UnityEngine;
 
-public class SpellMonsterState : MonoBehaviour
+public class SpellMonsterState : GroundMonsterState
 {
+    public SpellMonsterState(MonsterController monsterController) : base(monsterController)
+    {
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

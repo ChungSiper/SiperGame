@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class MonsterBattleState : MonterStateBase
+public class BattleMonsterState : MonterStateBase
 {
     private Transform _Player;
-    public MonsterBattleState(MonsterController monsterController) : base(monsterController)
+    public BattleMonsterState(MonsterController monsterController) : base(monsterController)
     {
     }
     public override void Enter()
@@ -30,12 +30,12 @@ public class MonsterBattleState : MonterStateBase
         }
         else
         {
-            _stateMachine.ChangeState(_monsterController.RunMonsterState);
+            Chase();
         }
     }
     private bool IsInAttackRange()
     {
-        return Mathf.Abs(_monsterController.transform.position.x - _Player.position.x) <= _monsterController.AttackRange;
+        return Mathf.Abs(_monsterController.transform.position.x - _Player.position.x) < _monsterController.AttackRange;
     }
     private void Chase()
     {
@@ -45,8 +45,8 @@ public class MonsterBattleState : MonterStateBase
     private float ChasingDirection()
     {
         return _monsterController.transform.position.x > _Player.position.x 
-            ? 1 
-            : -1;
+            ? -1f 
+            : 1f;
     }
 
 }

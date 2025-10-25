@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : AgentController
+public class PlayerController : AgentController, IDamageable
 {
     #region Input
     private Vector2 _moveInput;
@@ -72,6 +72,11 @@ public class PlayerController : AgentController
             _attackInput = ctx.ReadValue<float>();
         }
     }
-    
-    
+    public void OnDamage(float damage)
+    {
+        _health -= damage;
+        
+    }
+
+
 }

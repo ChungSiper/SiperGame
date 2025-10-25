@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-public class MonsterController : AgentController
+public class MonsterController : AgentController, IDamageable
 {
     #region Serialized fields
     [SerializeField] private float _walkSpeed = 2.5f;
@@ -21,7 +21,7 @@ public class MonsterController : AgentController
     public MonterStateBase RunMonsterState;
     public MonterStateBase MonsterBattleState;
     public MonterStateBase AttackMonsterState;
-
+    public MonterStateBase HurtMonterState;
 
     protected override void Awake()
     {
@@ -29,8 +29,9 @@ public class MonsterController : AgentController
         IdleMonsterState = new IdleMonsterState(this);
         WalkMonsterState = new WalkMonsterState(this);
         RunMonsterState = new RunMonsterState(this);
-        MonsterBattleState = new MonsterBattleState(this);
+        MonsterBattleState = new BattleMonsterState(this);
         AttackMonsterState = new AttackMonsterState(this);
+        HurtMonterState = new HurtMonsterState(this);
         _stateMachine.ChangeState(IdleMonsterState);
     }
     public void Walk()
@@ -54,6 +55,20 @@ public class MonsterController : AgentController
             return hit;
         }
         return default;
+    }
+    public void OnDamage(float damage)
+    {
+        _health -= damage;
+        _healthBar.SetValue(_health);
+        _stateMachine.ChangeState(HurtMonterState);
+        if(_health <= 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        _stateMachine.ChangeState(HurtMonterState);
     }
     protected override void OnDrawGizmos()
     {

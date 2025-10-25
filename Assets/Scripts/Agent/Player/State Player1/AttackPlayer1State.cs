@@ -14,7 +14,8 @@ public class AttackPlayer1State : Player1StateBase
     {
         base.Enter();
         _anim.SetBool("IsAttack", true);
-        if(Time.time > _lastAttackTimer + _comboChainTime
+        _comboAttackIndex++;
+        if (Time.time > _lastAttackTimer + _comboChainTime
             || _comboAttackIndex > MAX_COMBO_INDEX)
         {
             _comboAttackIndex = 1;

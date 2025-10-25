@@ -1,20 +1,28 @@
 using UnityEngine;
 
-public class HurtMonsterState : MonterStateBase
+public class HurtMonsterState : GroundMonsterState
 {
     public HurtMonsterState(MonsterController monster) : base(monster)
     {
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Enter()
     {
-        
+        base.Enter();
+        _anim.SetBool("isHurt",true);
+        _rb.linearVelocity = Vector2.zero;
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void Exit()
     {
-        
+        base.Exit();
+        _anim.SetBool("isHurt", false);
+    }
+    public override void Update()
+    {
+        base.Update();
+        if (_animationEventTrigger)
+        {
+            _stateMachine.ChangeState(_monsterController.IdleMonsterState);
+        }
     }
 }

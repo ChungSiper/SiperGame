@@ -8,7 +8,6 @@ public class AttackState : MonterStateBase
     public override void Enter()
     {
         base.Enter();
-        _monsterController.BasicAttack();
     }
     public override void Exit()
     {

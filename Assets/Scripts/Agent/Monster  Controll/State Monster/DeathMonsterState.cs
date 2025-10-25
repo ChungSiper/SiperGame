@@ -1,20 +1,22 @@
 using UnityEngine;
 
-public class DeathMonsterState : MonterStateBase
+public class DeathMonsterState : GroundMonsterState
 {
     public DeathMonsterState(MonsterController monster) : base(monster)
     {
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Enter()
     {
-        
+        base.Enter();
+        _anim.SetBool("isDeath", true);
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void Exit() 
+    { 
+        base.Exit(); 
+        _anim.SetBool("isDeath", false);
+    }
+    public override void Update()
     {
-        
+        base.Update();
     }
 }
