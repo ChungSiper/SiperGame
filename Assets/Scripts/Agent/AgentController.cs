@@ -34,10 +34,8 @@ public class AgentController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _stateMachine = new StateMachine();
 
-        _healthBar.MaxHealth = _health;
-        _healthBar.HealthBarSlider.maxValue = _health;
+        _healthBar.Initialize(_health);
         _healthBar.SetValue(_health);
-
 
     }
     void Update()
@@ -55,6 +53,7 @@ public class AgentController : MonoBehaviour
         if (direction > 0 != transform.localScale.x > 0)
         {
             transform.localScale *= new Vector2(-1f, 1f);
+            //_healthBar.transform.localScale *= new Vector2(-1f, 1f);
         }
     }
 
@@ -101,6 +100,5 @@ public class AgentController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(_detectGameObject.position, _detectGameObject.position + Vector3.down * _groundDetectDistance);
         Gizmos.DrawLine(_detectGameObject.position, _detectGameObject.position + Vector3.right * _wallDetectDistance * FacingDirection);
-
     }
 }

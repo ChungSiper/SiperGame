@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DeathMonsterState : GroundMonsterState
+public class DeathMonsterState : MonterStateBase
 {
     public DeathMonsterState(MonsterController monster) : base(monster)
     {
@@ -17,6 +17,6 @@ public class DeathMonsterState : GroundMonsterState
     }
     public override void Update()
     {
-        base.Update();
+
     }
 }

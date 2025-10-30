@@ -83,8 +83,6 @@ public class PlayerController : AgentController, IDamageable
         {
             Die();
         }
-
-
     }
     public void Die()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DeathPlayer1State : Player1StateBase
 {
-    private float _deathTime = 5f;
+    private float _deathTime = 2f;
     public DeathPlayer1State(PlayerController playerController) : base(playerController)
     {
     }
@@ -20,9 +20,11 @@ public class DeathPlayer1State : Player1StateBase
     public override void Update()
     {
         base.Update();
-        _deathTime -= Time.deltaTime;
-        _stateMachine.ChangeState(_player.IdlePlayer1State);
-
+        //_deathTime -= Time.deltaTime;
+        //if (_deathTime <= 0)
+        //{
+        //    _stateMachine.ChangeState(_player.IdlePlayer1State);
+        //}
     }
 
 

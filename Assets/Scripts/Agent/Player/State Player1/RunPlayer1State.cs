@@ -31,10 +31,7 @@ public class RunPlayer1State : Player1StateBase
             _player.JumpInput = 0f;
             _stateMachine.ChangeState(_player.JumpPlayer1State);
         }
-        //if(!_player.isGroundDetect)
-        //{
-        //    _stateMachine.ChangeState(_player.FallPlayer1State);
-        //}
+        
         if (_player.AttackInput != 0)
         {
             _player.AttackInput = 0f;
