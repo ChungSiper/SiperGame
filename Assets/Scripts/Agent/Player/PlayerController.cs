@@ -38,6 +38,8 @@ public class PlayerController : AgentController, IDamageable
     public Player1StateBase FallPlayer1State;
     public Player1StateBase JumpPlayer1State;
     public Player1StateBase AttackPlayer1State;
+    public Player1StateBase HurtPlayer1State;
+    public Player1StateBase DeathPlayer1State;
     #endregion
     protected override void Awake()
     {
@@ -47,14 +49,14 @@ public class PlayerController : AgentController, IDamageable
         FallPlayer1State = new FallPlayer1State(this);
         JumpPlayer1State = new JumpPlayer1State(this);
         AttackPlayer1State = new AttackPlayer1State(this);
+        HurtPlayer1State = new HurtPlayer1State(this);
+        DeathPlayer1State = new DeathPlayer1State(this);
         _stateMachine.ChangeState(IdlePlayer1State);
 
     }
     public void Move(InputAction.CallbackContext ctx)
     {
         _moveInput = ctx.ReadValue<Vector2>();
-        //SetFacingDiretion(_moveInput.x);
-        //rb.linearVelocity = new Vector2(_moveInput.x * _moveSpeed, rb.linearVelocity.y);
     }
     public void Jump(InputAction.CallbackContext ctx)
     {
@@ -75,8 +77,17 @@ public class PlayerController : AgentController, IDamageable
     public void OnDamage(float damage)
     {
         _health -= damage;
-        
+        _healthBar.SetValue(_health);
+        //_stateMachine.ChangeState(HurtPlayer1State);
+        if (_health <= 0)
+        {
+            Die();
+        }
+
+
     }
-
-
+    public void Die()
+    {
+        _stateMachine.ChangeState(DeathPlayer1State);
+    }
 }

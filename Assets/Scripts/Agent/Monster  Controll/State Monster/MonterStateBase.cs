@@ -11,7 +11,7 @@ public class MonterStateBase : AgentStateBase
     }
     protected override void HandleAnimationEvent()
     {
-        _anim.SetFloat("xInput", _rb.linearVelocity.x / _monsterController.RunSpeed);
-        //_anim.SetFloat("yInput", _rb.linearVelocity.y);
+        _anim.SetFloat("xInput", _rb.linearVelocity.x );
+        _anim.SetFloat("yInput", _rb.linearVelocity.y);
     }
 }

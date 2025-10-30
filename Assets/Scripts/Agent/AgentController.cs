@@ -19,12 +19,12 @@ public class AgentController : MonoBehaviour
     #endregion
 
     #region Serialized Fields
+    [SerializeField] protected float _health = 100f;
     [SerializeField] protected float _groundDetectDistance = 0.7f;
     [SerializeField] protected float _wallDetectDistance = 0.3f;
     [SerializeField] protected LayerMask _groundLayer;
     [SerializeField] protected LayerMask _wallLayer;
     [SerializeField] protected Transform _detectGameObject;
-    [SerializeField] protected float _health = 100f;
     [SerializeField] protected HealthBar _healthBar;
     #endregion
     public float FacingDirection => transform.localScale.x;
@@ -34,9 +34,9 @@ public class AgentController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _stateMachine = new StateMachine();
 
-        //_healthBar.MaxHealth = _health;
-        //_healthBar.HealthBarSlider.maxValue = _health;
-        //_healthBar.SetValue(_health);
+        _healthBar.MaxHealth = _health;
+        _healthBar.HealthBarSlider.maxValue = _health;
+        _healthBar.SetValue(_health);
 
 
     }
@@ -66,7 +66,7 @@ public class AgentController : MonoBehaviour
             layerMask = _groundLayer,
             useLayerMask = true
         };
-        if (Physics2D.Raycast(_detectGameObject.position, Vector2.down * FacingDirection, filter, hit, _groundDetectDistance) > 0)
+        if (Physics2D.Raycast(_detectGameObject.position, Vector2.down, filter, hit, _groundDetectDistance) > 0)
         {
             _isGrounDetect = true;
         }
@@ -92,7 +92,7 @@ public class AgentController : MonoBehaviour
             _isWallDetect = false;
         }
     }
-    public void TriggerAnimatonEvent()
+    public void TriggerAnimationEvent()
     {
         _stateMachine.CurrentState.TriggerAnimationEvent();
     }

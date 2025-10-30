@@ -21,7 +21,7 @@ public class AttackMonsterState : MonterStateBase
         base.Update();
         if (_animationEventTrigger)
         {
-            _stateMachine.ChangeState(_monsterController.MonsterBattleState);
+            _stateMachine.ChangeState(_monsterController.BattleMonsterState);
         }
     }
 

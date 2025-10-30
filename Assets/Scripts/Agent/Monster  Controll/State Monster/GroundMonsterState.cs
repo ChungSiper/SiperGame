@@ -23,7 +23,7 @@ public class GroundMonsterState : MonterStateBase
         base.Update();
         if (_monsterController.PlayerDetected())
         {
-            _stateMachine.ChangeState(_monsterController.MonsterBattleState);
+            _stateMachine.ChangeState(_monsterController.BattleMonsterState);
         }
     }
 }

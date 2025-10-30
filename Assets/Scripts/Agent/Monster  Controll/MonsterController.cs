@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.InputSystem;
 public class MonsterController : AgentController, IDamageable
 {
     #region Serialized fields
@@ -19,9 +17,10 @@ public class MonsterController : AgentController, IDamageable
     public MonterStateBase IdleMonsterState;
     public MonterStateBase WalkMonsterState;
     public MonterStateBase RunMonsterState;
-    public MonterStateBase MonsterBattleState;
+    public MonterStateBase BattleMonsterState;
     public MonterStateBase AttackMonsterState;
     public MonterStateBase HurtMonterState;
+    public MonterStateBase DeathMonterState;
 
     protected override void Awake()
     {
@@ -29,9 +28,10 @@ public class MonsterController : AgentController, IDamageable
         IdleMonsterState = new IdleMonsterState(this);
         WalkMonsterState = new WalkMonsterState(this);
         RunMonsterState = new RunMonsterState(this);
-        MonsterBattleState = new BattleMonsterState(this);
+        BattleMonsterState = new BattleMonsterState(this);
         AttackMonsterState = new AttackMonsterState(this);
         HurtMonterState = new HurtMonsterState(this);
+        DeathMonterState = new DeathMonsterState(this);
         _stateMachine.ChangeState(IdleMonsterState);
     }
     public void Walk()
@@ -51,7 +51,7 @@ public class MonsterController : AgentController, IDamageable
         RaycastHit2D hit = Physics2D.Raycast(_detectGameObject.position, Vector2.right * FacingDirection, _detectRange, _playerLayer);
         if (hit.collider != null)
         {
-            Debug.Log("Player Detected");
+            Debug.Log("Player detected");
             return hit;
         }
         return default;
@@ -61,14 +61,14 @@ public class MonsterController : AgentController, IDamageable
         _health -= damage;
         _healthBar.SetValue(_health);
         _stateMachine.ChangeState(HurtMonterState);
-        if(_health <= 0)
+        if (_health <= 0)
         {
             Die();
         }
     }
     public void Die()
     {
-        _stateMachine.ChangeState(HurtMonterState);
+        _stateMachine.ChangeState(DeathMonterState);
     }
     protected override void OnDrawGizmos()
     {

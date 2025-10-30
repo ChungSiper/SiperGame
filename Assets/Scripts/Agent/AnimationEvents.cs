@@ -3,16 +3,13 @@ using UnityEngine;
 
 public class AnimationEvents : MonoBehaviour
 {
-
-    // Use this for initialization
-    void Start()
+    private AgentController _controller;
+    void Awake()
     {
-
+        _controller = GetComponent<AgentController>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void AttackFinish()
     {
-
+        _controller.TriggerAnimationEvent();
     }
 }

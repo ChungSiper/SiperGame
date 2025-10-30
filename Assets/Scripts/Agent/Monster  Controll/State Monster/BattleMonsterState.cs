@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BattleMonsterState : MonterStateBase
 {
-    private Transform _Player;
+    private Transform _player;
     public BattleMonsterState(MonsterController monsterController) : base(monsterController)
     {
     }
@@ -11,9 +10,9 @@ public class BattleMonsterState : MonterStateBase
     {
         base.Enter();
         _anim.SetBool("isBattle", true);
-        if(_Player == null)
+        if(_player == null)
         {
-            _Player = _monsterController.PlayerDetected().transform;
+            _player = _monsterController.PlayerDetected().transform;
         }
     }
     public override void Exit()
@@ -35,7 +34,7 @@ public class BattleMonsterState : MonterStateBase
     }
     private bool IsInAttackRange()
     {
-        return Mathf.Abs(_monsterController.transform.position.x - _Player.position.x) < _monsterController.AttackRange;
+        return Mathf.Abs(_monsterController.transform.position.x - _player.position.x) < _monsterController.AttackRange;
     }
     private void Chase()
     {
@@ -44,7 +43,7 @@ public class BattleMonsterState : MonterStateBase
     }
     private float ChasingDirection()
     {
-        return _monsterController.transform.position.x > _Player.position.x 
+        return _monsterController.transform.position.x > _player.position.x 
             ? -1f 
             : 1f;
     }

@@ -9,6 +9,7 @@ public class WalkMonsterState : GroundMonsterState
     {
         base.Update();
         _monsterController.Walk();
+        
         if (!_monsterController.isGroundDetect || _monsterController.isWallDetect)
         {
             _rb.linearVelocity = Vector2.zero;

@@ -10,6 +10,6 @@ public class AnimationEvent : MonoBehaviour
     }
     public void AttackFinish()
     {
-        _player.TriggerAnimatonEvent();
+        _player.TriggerAnimationEvent();
     }
 }
