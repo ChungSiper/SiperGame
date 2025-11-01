@@ -64,6 +64,7 @@ public class MonsterController : AgentController, IDamageable
         if (_health <= 0)
         {
             Die();
+            Destroy(gameObject, 0.1f);
         }
     }
     public void Die()

@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static Monster Instance;
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void GetDamage(float damage)
     {
-        
+        Destroy(gameObject);
     }
 }

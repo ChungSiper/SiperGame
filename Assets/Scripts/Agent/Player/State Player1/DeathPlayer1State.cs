@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DeathPlayer1State : Player1StateBase
@@ -20,6 +21,7 @@ public class DeathPlayer1State : Player1StateBase
     public override void Update()
     {
         base.Update();
+        
         //_deathTime -= Time.deltaTime;
         //if (_deathTime <= 0)
         //{
