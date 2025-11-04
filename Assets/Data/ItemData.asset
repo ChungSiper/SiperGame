@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c635e391b477fd4eb8db01e1e10123b, type: 3}
   m_Name: ItemData
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSO
-  Name: 
+  Name: Coin
   Image: {fileID: 21300000, guid: 53831ffd2c1064d07b3fcc10982b1e0d, type: 3}
-  Desription: 
+  Desription: Coin

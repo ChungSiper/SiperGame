@@ -1,18 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-
-    // Use this for initialization
-    void Start()
+    private List<Item> _items = new();
+    public Action<Item> OnItemAdded;
+    public void AddItem(Item item)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        _items.Add(item);
+        OnItemAdded?.Invoke(item);
     }
 }

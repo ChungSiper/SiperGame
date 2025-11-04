@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class ItemObject : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private ItemDataSO _itemData;
+    private Item _item;
+    void Awake()
     {
-        
+        _item = new Item(_itemData);
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnValidate()
     {
-        
+        gameObject.name = "Item_" + _itemData.Name;
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.layer != LayerMask.NameToLayer("Player"))
+        {
+            return;
+        }
+        if(collider.TryGetComponent<PlayerInventory>(out PlayerInventory playerInventory))
+        {
+            playerInventory.AddItem(_item);
+            Destroy(gameObject);
+        }
     }
 }
