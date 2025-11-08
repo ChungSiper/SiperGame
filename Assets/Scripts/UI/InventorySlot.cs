@@ -38,7 +38,7 @@ public class InventorySlot : MonoBehaviour
         _item = null;
         _nameText.text = "";
         _thumbnail.sprite = null;
-        _thumbnail.color = Color.white;
+        _thumbnail.color = Color.clear;
         _currenStackSize = 0;
         IsAvailable = true;
         UpdateStackText();
