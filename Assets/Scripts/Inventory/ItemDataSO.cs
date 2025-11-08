@@ -5,5 +5,6 @@ public class ItemDataSO : ScriptableObject
 {
     public string Name;
     public Sprite Image;
+    public int MacStackSize;
     public string Desription;
 }
