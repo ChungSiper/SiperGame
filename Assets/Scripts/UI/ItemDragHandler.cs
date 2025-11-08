@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemDragHandler : MonoBehaviour, IDragHandler, IDropHandler, IEndDragHandler
+public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private bool _isDrag;
     void Update()
@@ -11,7 +11,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IDropHandler, IEndDr
         {
             _isDrag = false;
             transform.localPosition = Vector2.zero;
-        } 
+        }
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -21,15 +21,9 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IDropHandler, IEndDr
         }
         transform.position = Input.mousePosition;
     }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        transform.localPosition = Vector2.zero;
-    }
-
     public void OnEndDrag(PointerEventData eventData)
     {
-        _isDrag = true;
+        transform.localPosition = Vector2.zero;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
