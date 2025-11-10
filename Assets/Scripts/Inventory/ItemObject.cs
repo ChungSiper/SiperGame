@@ -4,8 +4,7 @@ public class ItemObject : MonoBehaviour
 {
     [SerializeField] private ItemDataSO _itemData;
     [SerializeField] private float _rotationSpeed = 2f;
-    [SerializeField] private float _PositionSpeed = 2f;
-    [SerializeField] private float _DepthPosition = 1f;
+    [SerializeField] private float _positionSpeed = 2f;
     private Item _item;
     void Awake()
     {
@@ -13,8 +12,8 @@ public class ItemObject : MonoBehaviour
     }
     private void Update()
     {
-        transform.Rotate(0f, 0f, _rotationSpeed * Time.deltaTime);
-        transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin(Time.time * _PositionSpeed) * Time.deltaTime, transform.position.z);
+        transform.Rotate(0f, _rotationSpeed * Time.deltaTime, 0f);
+        transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin( _positionSpeed * Time.time) * Time.deltaTime, transform.position.z);
 
     }
     void OnValidate()

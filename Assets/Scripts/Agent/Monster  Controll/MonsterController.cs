@@ -14,6 +14,7 @@ public class MonsterController : AgentController, IDamageable
     public float IdleTime => _idleTime;
     public float AttackRange => _attackRange;
 
+    public MonterStateBase GroundMonsterState;
     public MonterStateBase IdleMonsterState;
     public MonterStateBase WalkMonsterState;
     public MonterStateBase RunMonsterState;
@@ -25,6 +26,7 @@ public class MonsterController : AgentController, IDamageable
     protected override void Awake()
     {
         base.Awake();
+        GroundMonsterState = new GroundMonsterState(this);
         IdleMonsterState = new IdleMonsterState(this);
         WalkMonsterState = new WalkMonsterState(this);
         RunMonsterState = new RunMonsterState(this);
@@ -46,7 +48,7 @@ public class MonsterController : AgentController, IDamageable
     {
 
     }
-    public RaycastHit2D PlayerDetected()
+    public RaycastHit2D PlayerDetected() // Return RaycastHit2D to get more information about the player
     {
         RaycastHit2D hit = Physics2D.Raycast(_detectGameObject.position, Vector2.right * FacingDirection, _detectRange, _playerLayer);
         if (hit.collider != null)

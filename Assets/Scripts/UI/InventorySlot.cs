@@ -35,14 +35,33 @@ public class InventorySlot : MonoBehaviour
     }
     public void FreeSlot()
     {
+        // Remove one item from the slot. If the slot is empty after removal, clear the slot.
+        if (_item == null && _currenStackSize <= 0)
+        {
+            ClearSlot();
+            return;
+        }
+        if (_currenStackSize > 1)
+        {
+            _currenStackSize--;
+            IsAvailable = false;
+            UpdateStackText();
+        }
+        else
+        {
+            ClearSlot();
+        }
+
+    }
+    public void ClearSlot()
+    {
         _item = null;
+        _currenStackSize = 0;
         _nameText.text = "";
         _thumbnail.sprite = null;
         _thumbnail.color = Color.clear;
-        _currenStackSize = 0;
         IsAvailable = true;
         UpdateStackText();
-
     }
 
 }

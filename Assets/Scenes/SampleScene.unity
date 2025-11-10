@@ -535,8 +535,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 255143602}
   - {fileID: 218298675}
+  - {fileID: 255143602}
   - {fileID: 1402609515}
   - {fileID: 608845172}
   - {fileID: 2013818154}
@@ -8916,6 +8916,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3183564294028518994, guid: d3c6f32dafcd22b49a45931806a0ca41, type: 3}
+      propertyPath: _PositionSpeed
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183564294028518994, guid: d3c6f32dafcd22b49a45931806a0ca41, type: 3}
+      propertyPath: _positionSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4556375123034924392, guid: d3c6f32dafcd22b49a45931806a0ca41, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.072
@@ -9021,6 +9029,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5504695326933273320, guid: 258257df281b3fe409d63aad862ca7f0, type: 3}
+      propertyPath: _idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5504695326933273320, guid: 258257df281b3fe409d63aad862ca7f0, type: 3}
+      propertyPath: _detectRange
+      value: 2.07
+      objectReference: {fileID: 0}
     - target: {fileID: 8109017397058543632, guid: 258257df281b3fe409d63aad862ca7f0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -9108,6 +9124,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 358911245}
     m_Modifications:
+    - target: {fileID: 575302325097704567, guid: f5cb9ad588e6a3044aefc0d5ae453b95, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5006152329984141794, guid: f5cb9ad588e6a3044aefc0d5ae453b95, type: 3}
       propertyPath: m_Name
       value: InventorySlot

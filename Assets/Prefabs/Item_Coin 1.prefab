@@ -142,6 +142,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   _itemData: {fileID: 11400000, guid: 97b2734510ee9e34f9e81e003d3ebfd5, type: 2}
-  _rotationSpeed: 2
-  _PositionSpeed: 2
-  _DepthPosition: 1
+  _rotationSpeed: 1
+  _positionSpeed: 2
