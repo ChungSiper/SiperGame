@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00bc3db0765907d44b0830c3eabaf522, type: 3}
-  m_Name: HeathItemData
-  m_EditorClassIdentifier: Assembly-CSharp::HeathItemDataSO
-  HealPercent: 10
+  m_Script: {fileID: 11500000, guid: 32a2ecb0e7710c140a30c784d34e9aa7, type: 3}
+  m_Name: ItemEffectDataSO
+  m_EditorClassIdentifier: Assembly-CSharp::ItemEffectDataSO

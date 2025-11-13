@@ -19,6 +19,7 @@ public class AgentController : MonoBehaviour
     #endregion
 
     #region Serialized Fields
+    [SerializeField] protected float _maxHealth = 100f;
     [SerializeField] protected float _health = 100f;
     [SerializeField] protected float _groundDetectDistance = 0.7f;
     [SerializeField] protected float _wallDetectDistance = 0.3f;

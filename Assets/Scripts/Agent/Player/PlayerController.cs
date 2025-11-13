@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerController : AgentController, IDamageable
 {
@@ -15,12 +16,13 @@ public class PlayerController : AgentController, IDamageable
     public float JumpInput { get => _jumpInput; set => _jumpInput = value; }
     public float AttackInput { get => _attackInput; set => _attackInput = value; }
     public Vector2 AttackPushForce => _attackPushForce;
-    
+
 
     #endregion
-    
+
 
     #region Serialized fields
+    
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
     [SerializeField] private Vector2 _attackPushForce;
@@ -83,6 +85,12 @@ public class PlayerController : AgentController, IDamageable
         {
             Die();
         }
+    }
+    public void ChangeHealth(float healthPercent)
+    {
+        _health += _maxHealth * healthPercent;
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
+        _healthBar.SetValue(_health);
     }
     public void Die()
     {

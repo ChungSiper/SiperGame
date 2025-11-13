@@ -10,7 +10,7 @@ public class HurtMonsterState : MonterStateBase
     {
         base.Enter();
         _anim.SetBool("isHurt",true);
-        //_rb.linearVelocity = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
     }
     public override void Exit()
     {

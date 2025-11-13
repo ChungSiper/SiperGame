@@ -16,3 +16,4 @@ MonoBehaviour:
   Image: {fileID: 21300000, guid: 53831ffd2c1064d07b3fcc10982b1e0d, type: 3}
   MacStackSize: 100
   Desription: Coin
+  ItemEffect: {fileID: 11400000, guid: c6171d861704673438c883444317d2f7, type: 2}

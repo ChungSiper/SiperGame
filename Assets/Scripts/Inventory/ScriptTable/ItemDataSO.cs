@@ -7,4 +7,5 @@ public class ItemDataSO : ScriptableObject
     public Sprite Image;
     public int MacStackSize;
     public string Desription;
+    public ItemEffectDataSO ItemEffect;
 }
