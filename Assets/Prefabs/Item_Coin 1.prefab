@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.171, y: -0.386, z: 0}
-  m_LocalScale: {x: 0.070317864, y: 0.070317864, z: 0.070317864}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.070317864}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -143,4 +143,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemObject
   _itemData: {fileID: 11400000, guid: 97b2734510ee9e34f9e81e003d3ebfd5, type: 2}
   _rotationSpeed: 1
-  _positionSpeed: 2
+  _positionSpeed: 15

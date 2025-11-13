@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HurtMonsterState : GroundMonsterState
+public class HurtMonsterState : MonterStateBase
 {
     public HurtMonsterState(MonsterController monster) : base(monster)
     {
@@ -10,7 +10,7 @@ public class HurtMonsterState : GroundMonsterState
     {
         base.Enter();
         _anim.SetBool("isHurt",true);
-        _rb.linearVelocity = Vector2.zero;
+        //_rb.linearVelocity = Vector2.zero;
     }
     public override void Exit()
     {
@@ -22,7 +22,7 @@ public class HurtMonsterState : GroundMonsterState
         base.Update();
         if (_animationEventTrigger)
         {
-            _stateMachine.ChangeState(_monsterController.IdleMonsterState);
+            _stateMachine.ChangeState(_monsterController.BattleMonsterState);
         }
     }
 }
