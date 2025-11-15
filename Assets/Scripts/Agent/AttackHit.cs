@@ -10,6 +10,11 @@ public class AttackHit : MonoBehaviour
         {
             component.OnDamage(damage);
         }
+        var controller = GetComponentInParent<AgentController>();
+        if (controller != null)
+        {
+            controller.PlayHitSound();
+        }
     }
 
 }

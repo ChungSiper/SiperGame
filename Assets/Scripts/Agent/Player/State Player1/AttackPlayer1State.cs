@@ -25,7 +25,9 @@ public class AttackPlayer1State : Player1StateBase
         if (_comboAttackIndex == 2)
             _comboAttackIndex = 0;
         _lastAttackTimer = Time.time;
-        
+
+        AudioManager.Instance.PlaySFX(_player.AgentSFX.AttackMiss, _player.AudioSource);
+
     }
     public override void Exit()
     {

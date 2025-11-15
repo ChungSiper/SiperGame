@@ -10,6 +10,8 @@ public class AgentController : MonoBehaviour
     public Rigidbody2D RB => _rb;
     protected Animator _anim;
     public Animator anim => _anim;
+    private AgentSFX _agentSFX;
+    public AgentSFX AgentSFX => _agentSFX;
 
     #region Dtection flags
     private bool _isGrounDetect;
@@ -101,5 +103,9 @@ public class AgentController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(_detectGameObject.position, _detectGameObject.position + Vector3.down * _groundDetectDistance);
         Gizmos.DrawLine(_detectGameObject.position, _detectGameObject.position + Vector3.right * _wallDetectDistance * FacingDirection);
+    }
+    public void PlayHitSound()
+    {
+
     }
 }

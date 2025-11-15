@@ -16,8 +16,6 @@ public class PlayerController : AgentController, IDamageable
     public float JumpInput { get => _jumpInput; set => _jumpInput = value; }
     public float AttackInput { get => _attackInput; set => _attackInput = value; }
     public Vector2 AttackPushForce => _attackPushForce;
-
-
     #endregion
 
 
@@ -96,4 +94,5 @@ public class PlayerController : AgentController, IDamageable
     {
         _stateMachine.ChangeState(DeathPlayer1State);
     }
+    
 }
