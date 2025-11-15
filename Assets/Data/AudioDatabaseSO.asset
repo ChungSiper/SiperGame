@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioDatabaseSO
   PlayerSFX:
   - AudioClipName: AttackHit
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: d7ea6b2cca581414e87717a0d085aa62, type: 3}
   - AudioClipName: AttackMiss
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 90fb91c5d9f18df4183363d36d921429, type: 3}
   EnemySFX:
   - AudioClipName: EnemyAttackHit
-    AudioClip: {fileID: 0}
-  - AudioClipName: EnemeAttackMiss
-    AudioClip: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: faf53b5b59d41a14e97c8858f4664122, type: 3}
+  - AudioClipName: EnemyAttackMiss
+    AudioClip: {fileID: 8300000, guid: 0e9bca6dd55d7e541a865752da6415f5, type: 3}
   USISFX:
   - AudioClipName: 
     AudioClip: {fileID: 0}

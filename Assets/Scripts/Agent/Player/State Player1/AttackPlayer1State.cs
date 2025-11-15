@@ -22,11 +22,10 @@ public class AttackPlayer1State : Player1StateBase
         }
         _anim.SetInteger("BasicAttack", _comboAttackIndex);
         _player.SetFacingDiretion(_player.MoveInput.x);
-        if (_comboAttackIndex == 2)
-            _comboAttackIndex = 0;
+        //if (_comboAttackIndex == 2)
+        //    _comboAttackIndex = 0;
         _lastAttackTimer = Time.time;
-
-        AudioManager.Instance.PlaySFX(_player.AgentSFX.AttackMiss, _player.AudioSource);
+        AudioManager.Instance.PlaySFX(_player.agentSFX.AttackMiss, _player.audioSource);
 
     }
     public override void Exit()

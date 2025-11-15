@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioDatabaseSO _audioDatabaseSO;
     void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     }
     public void PlaySFX(string audioName, AudioSource audioSource)
     {
-        var audioClipData = _audioDatabaseSO.GetPlayerSFX(audioName);
+        var audioClipData = _audioDatabaseSO.GetAudioClip(audioName);
         if (audioClipData == null)
         {
             return;

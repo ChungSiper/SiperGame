@@ -10,8 +10,8 @@ public class AgentController : MonoBehaviour
     public Rigidbody2D RB => _rb;
     protected Animator _anim;
     public Animator anim => _anim;
-    private AgentSFX _agentSFX;
-    public AgentSFX AgentSFX => _agentSFX;
+    public AgentSFX agentSFX;
+    public AudioSource audioSource;
 
     #region Dtection flags
     private bool _isGrounDetect;
@@ -36,6 +36,8 @@ public class AgentController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _stateMachine = new StateMachine();
+        agentSFX = GetComponent<AgentSFX>();
+        audioSource = GetComponent<AudioSource>();
 
         _healthBar.Initialize(_health);
         _healthBar.SetValue(_health);
@@ -106,6 +108,6 @@ public class AgentController : MonoBehaviour
     }
     public void PlayHitSound()
     {
-
+        AudioManager.Instance.PlaySFX(agentSFX.AttackHit, audioSource);
     }
 }

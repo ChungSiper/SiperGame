@@ -94,5 +94,8 @@ public class PlayerController : AgentController, IDamageable
     {
         _stateMachine.ChangeState(DeathPlayer1State);
     }
-    
+    public void PlaySFX()
+    {
+
+    }
 }

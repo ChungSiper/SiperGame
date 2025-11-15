@@ -27,7 +27,7 @@ public class BattleMonsterState : MonterStateBase
         {
             _stateMachine.ChangeState(_monsterController.AttackMonsterState);
         }
-        else if(_monsterController.PlayerDetected().collider == null)
+        else if (_monsterController.PlayerDetected().collider == null)
         {
             _stateMachine.ChangeState(_monsterController.IdleMonsterState);
         }

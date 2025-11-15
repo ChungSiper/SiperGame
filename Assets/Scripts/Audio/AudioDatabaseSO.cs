@@ -26,7 +26,7 @@ public class AudioDatabaseSO : ScriptableObject
             _playerSFXDict.Add(itemClip.AudioClipName, itemClip);    
         }
     }
-    public AudioClipData GetPlayerSFX(string audioNam)
+    public AudioClipData GetAudioClip(string audioNam)
     {
         if(_playerSFXDict.TryGetValue(audioNam, out var audioClipData))
         {
