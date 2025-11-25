@@ -268,10 +268,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2912065376691084586, guid: 6f9f23fc642cbe2418d4451cef180675, type: 3}
-      propertyPath: checkPointType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2912065376691084586, guid: 6f9f23fc642cbe2418d4451cef180675, type: 3}
       propertyPath: _tagetSceceName
       value: Leve1
       objectReference: {fileID: 0}
@@ -2312,8 +2308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b39aa3a717cc9b439dcb5c497bf81bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  Player: {fileID: 0}
-  InventoryPanel: {fileID: 0}
+  player: {fileID: 1773990322}
+  inventoryPanel: {fileID: 358911247}
 --- !u!4 &1248015251
 Transform:
   m_ObjectHideFlags: 0
@@ -2959,6 +2955,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5cb9ad588e6a3044aefc0d5ae453b95, type: 3}
+--- !u!114 &1773990322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3981056190162320506, guid: e533731daf8190649bc6ee31e88837ae, type: 3}
+  m_PrefabInstance: {fileID: 2151257970795286835}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151257970795286836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b71ad53048aee14c98d8b954fc2feb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1 &1783933810
 GameObject:
   m_ObjectHideFlags: 0
@@ -9469,11 +9476,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2406649879212864508, guid: 6f9f23fc642cbe2418d4451cef180675, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.469
+      value: -7.2398577
       objectReference: {fileID: 0}
     - target: {fileID: 2406649879212864508, guid: 6f9f23fc642cbe2418d4451cef180675, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.41
+      value: 0.585
       objectReference: {fileID: 0}
     - target: {fileID: 2406649879212864508, guid: 6f9f23fc642cbe2418d4451cef180675, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9505,6 +9512,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2406649879212864508, guid: 6f9f23fc642cbe2418d4451cef180675, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912065376691084586, guid: 6f9f23fc642cbe2418d4451cef180675, type: 3}
+      propertyPath: checkPointType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4283000215937281665, guid: 6f9f23fc642cbe2418d4451cef180675, type: 3}

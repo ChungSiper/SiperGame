@@ -9,11 +9,21 @@ public class CheckPoint : MonoBehaviour
     public CheckPointType CheckPointType => checkPointType;
     public Vector2 Position => transform.position;
     private bool _canBeTriggered = true;
-    private Collider _collider;
+    private Collider2D _collider;
 
+    public bool CanbeTrigger
+    {
+        get  => _canBeTriggered; 
+        set => _canBeTriggered = value; 
+    }
+    public bool CanBeTriggered
+    {
+        get { return _canBeTriggered; }
+        set { _canBeTriggered = value; }
+    }
     void Awake()
     {
-        _collider = GetComponent<Collider>();
+        _collider = GetComponent<Collider2D>();
         var playerController = Physics2D.OverlapBox(_collider.bounds.center, _collider.bounds.size, 0, LayerMask.GetMask("Player"));
         if (playerController != null)
         {
@@ -22,7 +32,10 @@ public class CheckPoint : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_canBeTriggered) return;
+        if (!_canBeTriggered)
+        {
+            return;
+        }
         _canBeTriggered = false;
         GameManager.Instance.ChangeScece(_tagetSceceName);
     }
