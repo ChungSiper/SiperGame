@@ -16,4 +16,8 @@ public class Player : MonoBehaviour
         }
         PlayerController = GetComponent<PlayerController>();
     }
+    public void SpawnAtPosition(Vector2 position)
+    {
+        transform.position = position;
+    }
 }
